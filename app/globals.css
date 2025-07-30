@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 13 13 17;
+    --foreground: 243 244 246;
+    --card: 13 13 17;
+    --card-foreground: 243 244 246;
+    --popover: 13 13 17;
+    --popover-foreground: 243 244 246;
+    --primary: 75 61 140;
+    --primary-foreground: 243 244 246;
+    --secondary: 46 200 195;
+    --secondary-foreground: 13 13 17;
+    --muted: 156 163 175;
+    --muted-foreground: 243 244 246;
+    --accent: 46 200 195;
+    --accent-foreground: 13 13 17;
+    --destructive: 239 68 68;
+    --destructive-foreground: 243 244 246;
+    --border: 243 244 246 / 0.1;
+    --input: 243 244 246 / 0.1;
+    --ring: 46 200 195;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#F3F4F6] to-[#2EC8C3] bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b3d8c;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2ec8c3;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles ring-[#2EC8C3] ring-offset-2 ring-offset-[#0D0D11]*/
+.focus-visible:focus-visible {
+  @apply outline-none ring-2;
+}
