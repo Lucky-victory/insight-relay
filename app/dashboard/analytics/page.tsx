@@ -1,12 +1,37 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
-import { TrendingUp, Mail, Eye, MousePointer, Search, Filter } from "lucide-react"
-
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import {
+  TrendingUp,
+  Mail,
+  Eye,
+  MousePointer,
+  Search,
+  Filter,
+} from "lucide-react";
+import {
+  Line,
+  LineChart,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 const reports = [
   {
     id: 1,
@@ -35,20 +60,44 @@ const reports = [
     clickRate: "8%",
     status: "failed",
   },
-]
+];
+const openRateData = [
+  { month: "Jan", rate: 55 },
+  { month: "Feb", rate: 58 },
+  { month: "Mar", rate: 62 },
+  { month: "Apr", rate: 60 },
+  { month: "May", rate: 65 },
+  { month: "Jun", rate: 68 },
+  { month: "Jul", rate: 70 },
+];
 
+const clickRateData = [
+  { month: "Jan", rate: 8 },
+  { month: "Feb", rate: 9 },
+  { month: "Mar", rate: 11 },
+  { month: "Apr", rate: 10 },
+  { month: "May", rate: 12 },
+  { month: "Jun", rate: 14 },
+  { month: "Jul", rate: 15 },
+];
 export default function AnalyticsPage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [dateRange, setDateRange] = useState("last-30-days")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [dateRange, setDateRange] = useState("last-30-days");
 
-  const filteredReports = reports.filter((report) => report.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredReports = reports.filter((report) =>
+    report.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="p-6 space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-[#F3F4F6] mb-2">Engagement Analytics</h1>
-        <p className="text-[#9CA3AF]">Track the performance of your sent reports and email engagement.</p>
+        <h1 className="text-3xl font-bold text-[#F3F4F6] mb-2">
+          Engagement Analytics
+        </h1>
+        <p className="text-[#9CA3AF]">
+          Track the performance of your sent reports and email engagement.
+        </p>
       </div>
 
       {/* Filters */}
@@ -116,23 +165,126 @@ export default function AnalyticsPage() {
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10">
-          <h3 className="text-xl font-semibold text-[#F3F4F6] mb-4">Open Rate Trend</h3>
-          <div className="h-64 flex items-center justify-center text-[#9CA3AF]">
-            Chart placeholder - Open rate over time
-          </div>
+          <h3 className="text-xl font-semibold text-[#F3F4F6] mb-4">
+            Open Rate Trend
+          </h3>
+
+          <ChartContainer
+            config={{
+              rate: {
+                label: "Open Rate",
+                color: "hsl(var(--chart-1))",
+              },
+            }}
+            className="h-64 w-full"
+          >
+            <LineChart
+              data={openRateData}
+              margin={{
+                top: 10,
+                right: 10,
+                left: 10,
+                bottom: 0,
+              }}
+            >
+              <CartesianGrid
+                strokeDasharray="3 3"
+                vertical={false}
+                stroke="hsl(var(--border))"
+              />
+              <XAxis
+                dataKey="month"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                stroke="hsl(var(--muted-foreground))"
+              />
+              <YAxis
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                domain={[0, 100]} // Assuming percentage
+                tickFormatter={(value) => `${value}%`}
+                stroke="hsl(var(--muted-foreground))"
+              />
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent indicator="dashed" />}
+              />
+              <Line
+                dataKey="rate"
+                type="monotone"
+                stroke="hsl(var(--chart-1))"
+                strokeWidth={2}
+                dot={false}
+              />
+            </LineChart>
+          </ChartContainer>
         </div>
 
         <div className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10">
-          <h3 className="text-xl font-semibold text-[#F3F4F6] mb-4">Click Rate Trend</h3>
-          <div className="h-64 flex items-center justify-center text-[#9CA3AF]">
-            Chart placeholder - Click rate over time
-          </div>
+          <h3 className="text-xl font-semibold text-[#F3F4F6] mb-4">
+            Click Rate Trend
+          </h3>
+          <ChartContainer
+            config={{
+              rate: {
+                label: "Click Rate",
+                color: "hsl(var(--chart-2))",
+              },
+            }}
+            className="h-64 w-full"
+          >
+            <LineChart
+              data={clickRateData}
+              margin={{
+                top: 10,
+                right: 10,
+                left: 10,
+                bottom: 0,
+              }}
+            >
+              <CartesianGrid
+                strokeDasharray="3 3"
+                vertical={false}
+                stroke="hsl(var(--border))"
+              />
+              <XAxis
+                dataKey="month"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                stroke="hsl(var(--muted-foreground))"
+              />
+              <YAxis
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                domain={[0, 20]} // Assuming percentage
+                tickFormatter={(value) => `${value}%`}
+                stroke="hsl(var(--muted-foreground))"
+              />
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent indicator="dashed" />}
+              />
+              <Line
+                dataKey="rate"
+                type="monotone"
+                stroke="hsl(var(--chart-2))"
+                strokeWidth={2}
+                dot={false}
+              />
+            </LineChart>
+          </ChartContainer>
         </div>
       </div>
 
       {/* Reports Table */}
       <div className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10">
-        <h3 className="text-xl font-semibold text-[#F3F4F6] mb-6">Recent Reports</h3>
+        <h3 className="text-xl font-semibold text-[#F3F4F6] mb-6">
+          Recent Reports
+        </h3>
 
         <div className="space-y-4">
           {filteredReports.map((report, index) => (
@@ -149,26 +301,38 @@ export default function AnalyticsPage() {
                     <TrendingUp className="w-4 h-4 text-[#2EC8C3]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#F3F4F6]">{report.name}</h4>
-                    <p className="text-sm text-[#9CA3AF]">Sent on {report.sentDate}</p>
+                    <h4 className="font-semibold text-[#F3F4F6]">
+                      {report.name}
+                    </h4>
+                    <p className="text-sm text-[#9CA3AF]">
+                      Sent on {report.sentDate}
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-6">
                   <div className="text-center">
-                    <div className="text-sm font-medium text-[#F3F4F6]">{report.recipients}</div>
+                    <div className="text-sm font-medium text-[#F3F4F6]">
+                      {report.recipients}
+                    </div>
                     <div className="text-xs text-[#9CA3AF]">Recipients</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-sm font-medium text-[#F3F4F6]">{report.openRate}</div>
+                    <div className="text-sm font-medium text-[#F3F4F6]">
+                      {report.openRate}
+                    </div>
                     <div className="text-xs text-[#9CA3AF]">Open Rate</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-sm font-medium text-[#F3F4F6]">{report.clickRate}</div>
+                    <div className="text-sm font-medium text-[#F3F4F6]">
+                      {report.clickRate}
+                    </div>
                     <div className="text-xs text-[#9CA3AF]">Click Rate</div>
                   </div>
                   <Badge
-                    variant={report.status === "delivered" ? "default" : "destructive"}
+                    variant={
+                      report.status === "delivered" ? "default" : "destructive"
+                    }
                     className={`${
                       report.status === "delivered"
                         ? "bg-[#2EC8C3]/20 text-[#2EC8C3] border-[#2EC8C3]/30"
@@ -184,5 +348,5 @@ export default function AnalyticsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
