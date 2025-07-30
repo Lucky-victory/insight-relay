@@ -19,11 +19,11 @@ import { AppLogo } from "../ui/app-logo";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: Home },
-  { name: "Alerts", href: "/alerts", icon: Bell },
-  { name: "Scheduler", href: "/scheduler", icon: Calendar },
-  { name: "Analytics", href: "/analytics", icon: TrendingUp },
-  { name: "Integrations", href: "/integrations", icon: Zap },
-  { name: "Settings", href: "/settings", icon: Settings },
+  { name: "Alerts", href: "/dashboard/alerts", icon: Bell },
+  { name: "Scheduler", href: "/dashboard/scheduler", icon: Calendar },
+  { name: "Analytics", href: "/dashboard/analytics", icon: TrendingUp },
+  { name: "Integrations", href: "/dashboard/integrations", icon: Zap },
+  { name: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
 
 interface SidebarProps {
@@ -39,7 +39,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
       initial={false}
       animate={{ width: collapsed ? 80 : 280 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="h-screen bg-[#F3F4F6]/5 backdrop-blur-md border-r border-[#F3F4F6]/10 flex flex-col"
+      className="sticky top-0 z-10 h-screen bg-[#F3F4F6]/5 backdrop-blur-md border-r border-[#F3F4F6]/10 flex flex-col"
     >
       {/* Header */}
       <div className="p-6 border-b border-[#F3F4F6]/10">

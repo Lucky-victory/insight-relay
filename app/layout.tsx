@@ -1,9 +1,9 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "InsightRelay - Transform Data Into Actionable Insights",
@@ -16,25 +16,24 @@ export const metadata: Metadata = {
     "scheduled reports",
     "engagement analytics",
   ],
-  authors: [{ name: "InsightRelay Team" }],
-  creator: "InsightRelay",
-  publisher: "InsightRelay",
+  authors: [{ name: "Victory Lucky" }],
+  creator: "Victory Lucky",
+  publisher: "Victory Lucky",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-    generator: 'v0.dev'
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
