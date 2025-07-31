@@ -4,13 +4,22 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { BarChart3, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { AppLogo } from "@/components/ui/app-logo";
+import { useAuth } from "@/lib/auth";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
 
   return (
     <div className="min-h-screen bg-[#0D0D11] flex items-center justify-center px-4">
@@ -53,7 +62,22 @@ export default function LoginPage() {
           </div>
 
           {/* Form */}
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={async (e) => {
+            e.preventDefault();
+            setIsLoading(true);
+            try {
+              await login(email, password);
+              // Redirect is handled in the login function
+            } catch (error) {
+              toast({
+                title: "Login failed",
+                description: "Invalid email or password. Please try again.",
+                variant: "destructive",
+              });
+            } finally {
+              setIsLoading(false);
+            }
+          }}>
             <div className="space-y-2">
               <Label htmlFor="email" className="text-[#F3F4F6]">
                 Email
@@ -63,6 +87,9 @@ export default function LoginPage() {
                 type="email"
                 placeholder="Enter your email"
                 className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] placeholder:text-[#9CA3AF] rounded-xl h-12"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
 
@@ -76,6 +103,9 @@ export default function LoginPage() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] placeholder:text-[#9CA3AF] rounded-xl h-12 pr-12"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
                 <button
                   type="button"
@@ -92,13 +122,15 @@ export default function LoginPage() {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center gap-2 text-sm text-[#9CA3AF]">
+              <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   className="rounded border-[#F3F4F6]/20"
                 />
-                Remember me
-              </label>
+                <label className="text-sm text-[#9CA3AF]">
+                  Remember me
+                </label>
+              </div>
               <Link
                 href="/forgot-password"
                 className="text-sm text-accent hover:underline"
@@ -110,9 +142,9 @@ export default function LoginPage() {
             <Button
               type="submit"
               className="w-full bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white rounded-xl h-12 font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl"
-              asChild
+              disabled={isLoading}
             >
-              <Link href="/dashboard">Sign In</Link>
+              {isLoading ? "Signing in..." : "Sign In"}
             </Button>
           </form>
 

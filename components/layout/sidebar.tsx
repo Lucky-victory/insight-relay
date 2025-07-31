@@ -12,6 +12,7 @@ import {
   Zap,
   ChevronLeft,
   ChevronRight,
+  User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -24,6 +25,7 @@ const navigation = [
   { name: "Scheduler", href: "/dashboard/scheduler", icon: Calendar },
   { name: "Analytics", href: "/dashboard/analytics", icon: TrendingUp },
   { name: "Integrations", href: "/dashboard/integrations", icon: Zap },
+  { name: "Profile", href: "/dashboard/profile", icon: User },
   { name: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
 

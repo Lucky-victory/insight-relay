@@ -11,8 +11,28 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAuth } from "@/lib/auth";
+import { useToast } from "@/components/ui/use-toast";
 
 export function Topbar() {
+  const { user, logout } = useAuth();
+  const { toast } = useToast();
+  
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast({
+        title: "Logged out",
+        description: "You have been successfully logged out.",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was a problem logging out.",
+        variant: "destructive",
+      });
+    }
+  };
   return (
     <header className="h-16 bg-[#F3F4F6]/5 backdrop-blur-md border-b border-[#F3F4F6]/10 flex items-center justify-between px-6">
       {/* Search */}
@@ -73,7 +93,7 @@ export function Topbar() {
               <div className="w-8 h-8 bg-[#4B3D8C] rounded-full flex items-center justify-center">
                 <User className="w-4 h-4 text-white" />
               </div>
-              <span className="text-sm font-medium">John Doe</span>
+              <span className="text-sm font-medium">{user?.firstName || 'User'}</span>
               <ChevronDown className="w-4 h-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -88,7 +108,10 @@ export function Topbar() {
             <DropdownMenuItem className="text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5">
               Billing
             </DropdownMenuItem>
-            <DropdownMenuItem className="text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5">
+            <DropdownMenuItem 
+              className="text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5"
+              onClick={handleLogout}
+            >
               Sign out
             </DropdownMenuItem>
           </DropdownMenuContent>

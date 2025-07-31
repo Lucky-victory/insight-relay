@@ -1,24 +1,26 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { AuthProvider } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "InsightRelay - Transform Data Into Actionable Insights",
+  title: "Insight Relay - Business Intelligence Dashboard",
   description:
-    "Real-time business insights, automated alerts, scheduled reports, and engagement analytics for SMBs and growth-stage companies.",
+    "A comprehensive business intelligence dashboard for data visualization and analytics",
   keywords: [
-    "business analytics",
-    "real-time insights",
-    "automated alerts",
-    "scheduled reports",
-    "engagement analytics",
+    "business intelligence",
+    "dashboard",
+    "analytics",
+    "data visualization",
+    "metrics",
+    "KPI",
+    "reporting",
   ],
-  authors: [{ name: "Victory Lucky" }],
-  creator: "Victory Lucky",
-  publisher: "Victory Lucky",
+  authors: [{ name: "Insight Relay Team" }],
   formatDetection: {
     email: false,
     address: false,
@@ -32,8 +34,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} font-sans antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider>
+            {children}
+            <Toaster />
+          </AuthProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

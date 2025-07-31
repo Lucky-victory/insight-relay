@@ -4,13 +4,25 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { BarChart3, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { AppLogo } from "@/components/ui/app-logo";
+import { useAuth } from "@/lib/auth";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const { signup } = useAuth();
+  const router = useRouter();
+  const { toast } = useToast();
 
   return (
     <div className="min-h-screen bg-[#0D0D11] flex items-center justify-center px-4">
@@ -51,7 +63,31 @@ export default function SignupPage() {
           </div>
 
           {/* Form */}
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={async (e) => {
+            e.preventDefault();
+            if (!agreedToTerms) {
+              toast({
+                title: "Terms agreement required",
+                description: "You must agree to the Terms of Service and Privacy Policy.",
+                variant: "destructive",
+              });
+              return;
+            }
+            
+            setIsLoading(true);
+            try {
+              await signup(email, password, firstName, lastName);
+              // Redirect is handled in the signup function
+            } catch (error) {
+              toast({
+                title: "Signup failed",
+                description: "There was an error creating your account. Please try again.",
+                variant: "destructive",
+              });
+            } finally {
+              setIsLoading(false);
+            }
+          }}>
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="firstName" className="text-[#F3F4F6]">
@@ -61,6 +97,9 @@ export default function SignupPage() {
                   id="firstName"
                   placeholder="John"
                   className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] placeholder:text-[#9CA3AF] rounded-xl h-12"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
                 />
               </div>
               <div className="space-y-2">
@@ -71,6 +110,9 @@ export default function SignupPage() {
                   id="lastName"
                   placeholder="Doe"
                   className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] placeholder:text-[#9CA3AF] rounded-xl h-12"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
                 />
               </div>
             </div>
@@ -84,6 +126,9 @@ export default function SignupPage() {
                 type="email"
                 placeholder="john@company.com"
                 className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] placeholder:text-[#9CA3AF] rounded-xl h-12"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
 
@@ -97,6 +142,10 @@ export default function SignupPage() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Create a strong password"
                   className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] placeholder:text-[#9CA3AF] rounded-xl h-12 pr-12"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={8}
                 />
                 <button
                   type="button"
@@ -116,6 +165,9 @@ export default function SignupPage() {
               <input
                 type="checkbox"
                 className="mt-1 rounded border-[#F3F4F6]/20"
+                checked={agreedToTerms}
+                onChange={(e) => setAgreedToTerms(e.target.checked)}
+                required
               />
               <label className="text-sm text-[#9CA3AF]">
                 I agree to the{" "}
@@ -132,9 +184,9 @@ export default function SignupPage() {
             <Button
               type="submit"
               className="w-full bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white rounded-xl h-12 font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl"
-              asChild
+              disabled={isLoading}
             >
-              <Link href="/onboarding">Create Account</Link>
+              {isLoading ? "Creating Account..." : "Create Account"}
             </Button>
           </form>
 
