@@ -19,12 +19,12 @@ export function StatCard({ title, value, change, trend, icon }: StatCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30 transition-all duration-300"
+      className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-accent/30 transition-all duration-300"
     >
       <div className="flex items-center justify-between mb-4">
         <div className="p-3 rounded-xl bg-[#4B3D8C]/20">{icon}</div>
         <div
-          className={`flex items-center gap-1 text-sm ${trend === "up" ? "text-[#4bf8f3]" : "text-red-400"}`}
+          className={`flex items-center gap-1 text-sm ${trend === "up" ? "text-accent" : "text-red-400"}`}
         >
           {trend === "up" ? (
             <TrendingUp className="w-4 h-4" />

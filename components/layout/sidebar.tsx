@@ -74,7 +74,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
                   href={item.href}
                   className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group ${
                     isActive
-                      ? "bg-background text-[#4bf8f3] border border-[#474a4f]"
+                      ? "bg-background text-accent border border-[#474a4f]"
                       : "text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5"
                   }`}
                 >

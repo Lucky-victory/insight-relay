@@ -73,7 +73,7 @@ export function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#F3F4F6] to-[#4bf8f3] bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#F3F4F6] to-accent bg-clip-text text-transparent">
             Simple, Transparent Pricing
           </h2>
           <p className="text-xl text-[#9CA3AF] max-w-3xl mx-auto mb-8">
@@ -102,7 +102,7 @@ export function Pricing() {
             >
               Yearly
             </span>
-            <div className="px-3 py-1 rounded-full bg-[#4bf8f3]/20 text-[#4bf8f3] text-sm font-medium">
+            <div className="px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-medium">
               Save 17%
             </div>
           </div>
@@ -120,7 +120,7 @@ export function Pricing() {
             >
               {plan.popular && (
                 <div className="absolute z-10 -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="flex items-center gap-1 px-4 py-2 rounded-full bg-gradient-to-r from-[#4B3D8C] to-[#4bf8f3] text-white text-sm font-medium">
+                  <div className="flex items-center gap-1 px-4 py-2 rounded-full bg-gradient-to-r from-[#4B3D8C] to-accent text-white text-sm font-medium">
                     <Star className="w-4 h-4" />
                     Most Popular
                   </div>
@@ -131,7 +131,7 @@ export function Pricing() {
                 className={`p-8 rounded-2xl backdrop-blur-md border transition-all duration-300 h-full ${
                   plan.popular
                     ? "bg-[#4B3D8C]/10 border-[#4B3D8C]/50 shadow-xl shadow-[#4B3D8C]/20"
-                    : "bg-[#F3F4F6]/5 border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30"
+                    : "bg-[#F3F4F6]/5 border-[#F3F4F6]/10 hover:border-accent/30"
                 }`}
               >
                 <div className="mb-8">
@@ -150,7 +150,7 @@ export function Pricing() {
                   </div>
 
                   {isYearly && (
-                    <div className="text-sm text-[#4bf8f3] mt-1">
+                    <div className="text-sm text-accent mt-1">
                       $
                       {Math.round(
                         (plan.monthlyPrice * 12 - plan.yearlyPrice) / 12
@@ -163,7 +163,7 @@ export function Pricing() {
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-[#4bf8f3] flex-shrink-0" />
+                      <Check className="w-5 h-5 text-accent flex-shrink-0" />
                       <span className="text-[#9CA3AF]">{feature}</span>
                     </li>
                   ))}
@@ -173,7 +173,7 @@ export function Pricing() {
                   className={`w-full py-3 rounded-2xl font-semibold transition-all duration-300 ${
                     plan.popular
                       ? "bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white shadow-xl hover:shadow-2xl hover:scale-105"
-                      : "bg-[#F3F4F6]/10 hover:bg-[#4bf8f3]/20 text-[#4bf8f3] border border-[#4bf8f3]/30"
+                      : "bg-[#F3F4F6]/10 hover:bg-accent/20 text-accent border border-accent/30"
                   }`}
                   asChild
                 >

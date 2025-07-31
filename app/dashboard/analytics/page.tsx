@@ -131,34 +131,34 @@ export default function AnalyticsPage() {
         <div className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 rounded-xl bg-[#4B3D8C]/20">
-              <Mail className="w-5 h-5 text-[#4bf8f3]" />
+              <Mail className="w-5 h-5 text-accent" />
             </div>
             <h3 className="font-semibold text-[#F3F4F6]">Total Sent</h3>
           </div>
           <div className="text-2xl font-bold text-[#F3F4F6] mb-1">1,247</div>
-          <div className="text-sm text-[#4bf8f3]">+12% from last month</div>
+          <div className="text-sm text-accent">+12% from last month</div>
         </div>
 
         <div className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 rounded-xl bg-[#4B3D8C]/20">
-              <Eye className="w-5 h-5 text-[#4bf8f3]" />
+              <Eye className="w-5 h-5 text-accent" />
             </div>
             <h3 className="font-semibold text-[#F3F4F6]">Avg Open Rate</h3>
           </div>
           <div className="text-2xl font-bold text-[#F3F4F6] mb-1">62%</div>
-          <div className="text-sm text-[#4bf8f3]">+3% from last month</div>
+          <div className="text-sm text-accent">+3% from last month</div>
         </div>
 
         <div className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 rounded-xl bg-[#4B3D8C]/20">
-              <MousePointer className="w-5 h-5 text-[#4bf8f3]" />
+              <MousePointer className="w-5 h-5 text-accent" />
             </div>
             <h3 className="font-semibold text-[#F3F4F6]">Avg Click Rate</h3>
           </div>
           <div className="text-2xl font-bold text-[#F3F4F6] mb-1">13%</div>
-          <div className="text-sm text-[#4bf8f3]">+1% from last month</div>
+          <div className="text-sm text-accent">+1% from last month</div>
         </div>
       </div>
 
@@ -293,12 +293,12 @@ export default function AnalyticsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="p-4 rounded-xl bg-[#F3F4F6]/5 border border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30 transition-all duration-300"
+              className="p-4 rounded-xl bg-[#F3F4F6]/5 border border-[#F3F4F6]/10 hover:border-accent/30 transition-all duration-300"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="p-2 rounded-lg bg-[#4B3D8C]/20">
-                    <TrendingUp className="w-4 h-4 text-[#4bf8f3]" />
+                    <TrendingUp className="w-4 h-4 text-accent" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#F3F4F6]">
@@ -335,7 +335,7 @@ export default function AnalyticsPage() {
                     }
                     className={`${
                       report.status === "delivered"
-                        ? "bg-[#4bf8f3]/20 text-[#4bf8f3] border-[#4bf8f3]/30"
+                        ? "bg-accent/20 text-accent border-accent/30"
                         : "bg-red-500/20 text-red-400 border-red-500/30"
                     } rounded-full`}
                   >

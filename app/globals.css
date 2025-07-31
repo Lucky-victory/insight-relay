@@ -58,7 +58,7 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-[#F3F4F6] to-[#4bf8f3] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#F3F4F6] to-accent bg-clip-text text-transparent;
   }
 }
 
@@ -85,7 +85,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Focus styles ring-[#4bf8f3] ring-offset-2 ring-offset-[#0D0D11]*/
+/* Focus styles ring-accent ring-offset-2 ring-offset-[#0D0D11]*/
 .focus-visible:focus-visible {
   @apply outline-none ring-2;
 }

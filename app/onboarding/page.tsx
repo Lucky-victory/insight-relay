@@ -41,7 +41,7 @@ export default function OnboardingPage() {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-center gap-2 mb-12">
-          <BarChart3 className="w-8 h-8 text-[#4bf8f3]" />
+          <BarChart3 className="w-8 h-8 text-accent" />
           <span className="text-2xl font-bold text-[#F3F4F6]">
             InsightRelay
           </span>
@@ -193,7 +193,7 @@ export default function OnboardingPage() {
                   ].map((integration) => (
                     <div
                       key={integration.name}
-                      className="p-4 rounded-xl bg-[#F3F4F6]/5 border border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30 transition-all duration-300 cursor-pointer"
+                      className="p-4 rounded-xl bg-[#F3F4F6]/5 border border-[#F3F4F6]/10 hover:border-accent/30 transition-all duration-300 cursor-pointer"
                     >
                       <div className="flex items-center gap-3">
                         <div className="text-2xl">{integration.logo}</div>

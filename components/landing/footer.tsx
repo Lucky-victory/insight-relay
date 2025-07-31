@@ -40,7 +40,7 @@ export function Footer() {
           {/* Brand and newsletter */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <BarChart3 className="w-8 h-8 text-[#4bf8f3]" />
+              <BarChart3 className="w-8 h-8 text-accent" />
               <span className="text-xl font-bold text-[#F3F4F6]">
                 InsightRelay
               </span>
@@ -73,7 +73,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                    className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -89,7 +89,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                    className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -105,7 +105,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                    className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -121,7 +121,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                    className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -140,25 +140,25 @@ export function Footer() {
           <div className="flex items-center gap-4">
             <Link
               href="https://twitter.com"
-              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
             >
               <Twitter className="w-5 h-5" />
             </Link>
             <Link
               href="https://linkedin.com"
-              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
             >
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
               href="https://github.com"
-              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
             >
               <Github className="w-5 h-5" />
             </Link>
             <Link
               href="mailto:hello@insightrelay.com"
-              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-accent transition-colors duration-200"
             >
               <Mail className="w-5 h-5" />
             </Link>

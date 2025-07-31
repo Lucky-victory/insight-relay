@@ -91,7 +91,7 @@ export default function IntegrationsPage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "connected":
-        return "bg-[#4bf8f3]/20 text-[#4bf8f3] border-[#4bf8f3]/30";
+        return "bg-accent/20 text-accent border-accent/30";
       case "disconnected":
         return "bg-[#9CA3AF]/20 text-[#9CA3AF] border-[#9CA3AF]/30";
       default:
@@ -102,7 +102,7 @@ export default function IntegrationsPage() {
   const getWebhookStatusIcon = (status: string) => {
     switch (status) {
       case "active":
-        return <CheckCircle className="w-4 h-4 text-[#4bf8f3]" />;
+        return <CheckCircle className="w-4 h-4 text-accent" />;
       case "error":
         return <AlertCircle className="w-4 h-4 text-red-400" />;
       default:
@@ -128,7 +128,7 @@ export default function IntegrationsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30 transition-all duration-300"
+            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-accent/30 transition-all duration-300"
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-4">
@@ -218,7 +218,7 @@ export default function IntegrationsPage() {
         <div className="flex gap-3">
           <Button
             variant="outline"
-            className="border-[#4bf8f3]/50 text-[#4bf8f3] hover:bg-[#4bf8f3]/10 rounded-xl bg-transparent"
+            className="border-accent/50 text-accent hover:bg-accent/10 rounded-xl bg-transparent"
           >
             View Documentation
           </Button>

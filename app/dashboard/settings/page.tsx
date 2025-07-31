@@ -75,7 +75,7 @@ export default function SettingsPage() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                     activeTab === tab.id
-                      ? "bg-[#4B3D8C]/20 text-[#4bf8f3] border border-[#4B3D8C]/30"
+                      ? "bg-[#4B3D8C]/20 text-accent border border-[#4B3D8C]/30"
                       : "text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5"
                   }`}
                 >
@@ -230,7 +230,7 @@ export default function SettingsPage() {
                           <Badge
                             className={`${
                               member.status === "active"
-                                ? "bg-[#4bf8f3]/20 text-[#4bf8f3] border-[#4bf8f3]/30"
+                                ? "bg-accent/20 text-accent border-accent/30"
                                 : "bg-[#9CA3AF]/20 text-[#9CA3AF] border-[#9CA3AF]/30"
                             } rounded-full`}
                           >

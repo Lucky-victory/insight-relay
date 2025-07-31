@@ -15,7 +15,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#0D0D11] flex items-center justify-center px-4">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#4B3D8C]/10 via-[#0D0D11] to-[#4bf8f3]/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#4B3D8C]/10 via-[#0D0D11] to-accent/5" />
 
       <motion.div
         className="absolute top-20 left-20 w-72 h-72 bg-[#4B3D8C]/5 rounded-full blur-3xl"
@@ -80,7 +80,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#9CA3AF] hover:text-accent transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -101,7 +101,7 @@ export default function LoginPage() {
               </label>
               <Link
                 href="/forgot-password"
-                className="text-sm text-[#4bf8f3] hover:underline"
+                className="text-sm text-accent hover:underline"
               >
                 Forgot password?
               </Link>
@@ -122,7 +122,7 @@ export default function LoginPage() {
               Don't have an account?{" "}
               <Link
                 href="/signup"
-                className="text-[#4bf8f3] hover:underline font-medium"
+                className="text-accent hover:underline font-medium"
               >
                 Sign up
               </Link>

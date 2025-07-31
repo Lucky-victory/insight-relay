@@ -190,12 +190,12 @@ export default function SchedulerPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30 transition-all duration-300"
+            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-accent/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-[#4B3D8C]/20">
-                  <Calendar className="w-5 h-5 text-[#4bf8f3]" />
+                  <Calendar className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#F3F4F6] mb-1">
@@ -212,7 +212,7 @@ export default function SchedulerPage() {
                   variant={report.status === "active" ? "default" : "secondary"}
                   className={`${
                     report.status === "active"
-                      ? "bg-[#4bf8f3]/20 text-[#4bf8f3] border-[#4bf8f3]/30"
+                      ? "bg-accent/20 text-accent border-accent/30"
                       : "bg-[#9CA3AF]/20 text-[#9CA3AF] border-[#9CA3AF]/30"
                   } rounded-full`}
                 >
