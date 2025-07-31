@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Bell, Search, User, ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Bell, Search, User, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 export function Topbar() {
   return (
@@ -29,21 +29,30 @@ export function Topbar() {
       {/* Right side */}
       <div className="flex items-center gap-4">
         {/* Notifications */}
-        <Button variant="ghost" size="sm" className="relative text-[#9CA3AF] hover:text-[#F3F4F6]">
+        <Button
+          variant="ghost"
+          size="sm"
+          className="relative text-[#9CA3AF] hover:text-[#F3F4F6]"
+        >
           <Bell className="w-5 h-5" />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#2EC8C3] rounded-full text-xs"></span>
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#4bf8f3] rounded-full text-xs"></span>
         </Button>
 
         {/* Organization Switcher */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="text-[#F3F4F6] hover:bg-[#F3F4F6]/5">
+            <Button
+              variant="ghost"
+              className="text-[#F3F4F6] hover:bg-[#F3F4F6]/5"
+            >
               <span className="text-sm font-medium">Acme Corp</span>
               <ChevronDown className="w-4 h-4 ml-1" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-[#0D0D11] border-[#F3F4F6]/20">
-            <DropdownMenuLabel className="text-[#F3F4F6]">Organizations</DropdownMenuLabel>
+            <DropdownMenuLabel className="text-[#F3F4F6]">
+              Organizations
+            </DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-[#F3F4F6]/20" />
             <DropdownMenuItem className="text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5">
               Acme Corp
@@ -57,7 +66,10 @@ export function Topbar() {
         {/* Profile */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2 text-[#F3F4F6] hover:bg-[#F3F4F6]/5">
+            <Button
+              variant="ghost"
+              className="flex items-center gap-2 text-[#F3F4F6] hover:bg-[#F3F4F6]/5"
+            >
               <div className="w-8 h-8 bg-[#4B3D8C] rounded-full flex items-center justify-center">
                 <User className="w-4 h-4 text-white" />
               </div>
@@ -66,7 +78,9 @@ export function Topbar() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-[#0D0D11] border-[#F3F4F6]/20">
-            <DropdownMenuLabel className="text-[#F3F4F6]">My Account</DropdownMenuLabel>
+            <DropdownMenuLabel className="text-[#F3F4F6]">
+              My Account
+            </DropdownMenuLabel>
             <DropdownMenuSeparator className="bg-[#F3F4F6]/20" />
             <DropdownMenuItem className="text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5">
               Profile
@@ -81,5 +95,5 @@ export function Topbar() {
         </DropdownMenu>
       </div>
     </header>
-  )
+  );
 }

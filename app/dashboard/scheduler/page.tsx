@@ -1,14 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
-import { Plus, Calendar, Clock, Users, Search, MoreHorizontal } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import {
+  Plus,
+  Calendar,
+  Clock,
+  Users,
+  Search,
+  MoreHorizontal,
+} from "lucide-react";
 
 const reports = [
   {
@@ -38,13 +57,15 @@ const reports = [
     template: "Performance Dashboard",
     status: "paused",
   },
-]
+];
 
 export default function SchedulerPage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
-  const filteredReports = reports.filter((report) => report.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredReports = reports.filter((report) =>
+    report.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="p-6 space-y-6">
@@ -52,7 +73,9 @@ export default function SchedulerPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-[#F3F4F6] mb-2">Scheduler</h1>
-          <p className="text-[#9CA3AF]">Manage your automated reports and delivery schedules.</p>
+          <p className="text-[#9CA3AF]">
+            Manage your automated reports and delivery schedules.
+          </p>
         </div>
 
         <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
@@ -64,7 +87,9 @@ export default function SchedulerPage() {
           </DialogTrigger>
           <DialogContent className="bg-[#0D0D11] border-[#F3F4F6]/20 text-[#F3F4F6] max-w-md">
             <DialogHeader>
-              <DialogTitle className="text-[#F3F4F6]">Schedule New Report</DialogTitle>
+              <DialogTitle className="text-[#F3F4F6]">
+                Schedule New Report
+              </DialogTitle>
             </DialogHeader>
             <div className="space-y-4 mt-4">
               <div className="space-y-2">
@@ -104,8 +129,12 @@ export default function SchedulerPage() {
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D0D11] border-[#F3F4F6]/20">
                     <SelectItem value="revenue">Revenue Summary</SelectItem>
-                    <SelectItem value="analytics">Analytics Overview</SelectItem>
-                    <SelectItem value="performance">Performance Dashboard</SelectItem>
+                    <SelectItem value="analytics">
+                      Analytics Overview
+                    </SelectItem>
+                    <SelectItem value="performance">
+                      Performance Dashboard
+                    </SelectItem>
                     <SelectItem value="custom">Custom Report</SelectItem>
                   </SelectContent>
                 </Select>
@@ -161,15 +190,17 @@ export default function SchedulerPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-[#2EC8C3]/30 transition-all duration-300"
+            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-[#4B3D8C]/20">
-                  <Calendar className="w-5 h-5 text-[#2EC8C3]" />
+                  <Calendar className="w-5 h-5 text-[#4bf8f3]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[#F3F4F6] mb-1">{report.name}</h3>
+                  <h3 className="text-lg font-semibold text-[#F3F4F6] mb-1">
+                    {report.name}
+                  </h3>
                   <p className="text-[#9CA3AF] text-sm">
                     {report.template} • {report.frequency}
                   </p>
@@ -181,13 +212,17 @@ export default function SchedulerPage() {
                   variant={report.status === "active" ? "default" : "secondary"}
                   className={`${
                     report.status === "active"
-                      ? "bg-[#2EC8C3]/20 text-[#2EC8C3] border-[#2EC8C3]/30"
+                      ? "bg-[#4bf8f3]/20 text-[#4bf8f3] border-[#4bf8f3]/30"
                       : "bg-[#9CA3AF]/20 text-[#9CA3AF] border-[#9CA3AF]/30"
                   } rounded-full`}
                 >
                   {report.status}
                 </Badge>
-                <Button variant="ghost" size="sm" className="text-[#9CA3AF] hover:text-[#F3F4F6]">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-[#9CA3AF] hover:text-[#F3F4F6]"
+                >
                   <MoreHorizontal className="w-4 h-4" />
                 </Button>
               </div>
@@ -199,12 +234,15 @@ export default function SchedulerPage() {
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4 text-[#9CA3AF]" />
                     <span className="text-[#9CA3AF]">
-                      Next run: <span className="text-[#F3F4F6]">{report.nextRun}</span>
+                      Next run:{" "}
+                      <span className="text-[#F3F4F6]">{report.nextRun}</span>
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Users className="w-4 h-4 text-[#9CA3AF]" />
-                    <span className="text-[#9CA3AF]">{report.recipients.length} recipients</span>
+                    <span className="text-[#9CA3AF]">
+                      {report.recipients.length} recipients
+                    </span>
                   </div>
                 </div>
               </div>
@@ -213,5 +251,5 @@ export default function SchedulerPage() {
         ))}
       </div>
     </div>
-  )
+  );
 }

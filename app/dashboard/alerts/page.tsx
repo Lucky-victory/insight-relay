@@ -1,14 +1,26 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
-import { Plus, Bell, Mail, Search, MoreHorizontal } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Plus, Bell, Mail, Search, MoreHorizontal } from "lucide-react";
 
 const alerts = [
   {
@@ -38,13 +50,15 @@ const alerts = [
     lastTriggered: "1 day ago",
     recipients: ["sales@acme.com"],
   },
-]
+];
 
 export default function AlertsPage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
-  const filteredAlerts = alerts.filter((alert) => alert.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredAlerts = alerts.filter((alert) =>
+    alert.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="p-6 space-y-6">
@@ -52,7 +66,9 @@ export default function AlertsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-[#F3F4F6] mb-2">Alerts</h1>
-          <p className="text-[#9CA3AF]">Monitor your key metrics and get notified when thresholds are met.</p>
+          <p className="text-[#9CA3AF]">
+            Monitor your key metrics and get notified when thresholds are met.
+          </p>
         </div>
 
         <Dialog open={isCreateModalOpen} onOpenChange={setIsCreateModalOpen}>
@@ -64,7 +80,9 @@ export default function AlertsPage() {
           </DialogTrigger>
           <DialogContent className="bg-[#0D0D11] border-[#F3F4F6]/20 text-[#F3F4F6] max-w-md">
             <DialogHeader>
-              <DialogTitle className="text-[#F3F4F6]">Create New Alert</DialogTitle>
+              <DialogTitle className="text-[#F3F4F6]">
+                Create New Alert
+              </DialogTitle>
             </DialogHeader>
             <div className="space-y-4 mt-4">
               <div className="space-y-2">
@@ -156,15 +174,17 @@ export default function AlertsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-[#2EC8C3]/30 transition-all duration-300"
+            className="p-6 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 hover:border-[#4bf8f3]/30 transition-all duration-300"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-[#4B3D8C]/20">
-                  <Bell className="w-5 h-5 text-[#2EC8C3]" />
+                  <Bell className="w-5 h-5 text-[#4bf8f3]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[#F3F4F6] mb-1">{alert.name}</h3>
+                  <h3 className="text-lg font-semibold text-[#F3F4F6] mb-1">
+                    {alert.name}
+                  </h3>
                   <p className="text-[#9CA3AF] text-sm">
                     {alert.metric} • Threshold: {alert.threshold}
                   </p>
@@ -176,13 +196,17 @@ export default function AlertsPage() {
                   variant={alert.status === "active" ? "default" : "secondary"}
                   className={`${
                     alert.status === "active"
-                      ? "bg-[#2EC8C3]/20 text-[#2EC8C3] border-[#2EC8C3]/30"
+                      ? "bg-[#4bf8f3]/20 text-[#4bf8f3] border-[#4bf8f3]/30"
                       : "bg-[#9CA3AF]/20 text-[#9CA3AF] border-[#9CA3AF]/30"
                   } rounded-full`}
                 >
                   {alert.status}
                 </Badge>
-                <Button variant="ghost" size="sm" className="text-[#9CA3AF] hover:text-[#F3F4F6]">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-[#9CA3AF] hover:text-[#F3F4F6]"
+                >
                   <MoreHorizontal className="w-4 h-4" />
                 </Button>
               </div>
@@ -192,11 +216,16 @@ export default function AlertsPage() {
               <div className="flex items-center justify-between text-sm">
                 <div className="flex items-center gap-4">
                   <span className="text-[#9CA3AF]">
-                    Last triggered: <span className="text-[#F3F4F6]">{alert.lastTriggered}</span>
+                    Last triggered:{" "}
+                    <span className="text-[#F3F4F6]">
+                      {alert.lastTriggered}
+                    </span>
                   </span>
                   <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-[#9CA3AF]" />
-                    <span className="text-[#9CA3AF]">{alert.recipients.length} recipients</span>
+                    <span className="text-[#9CA3AF]">
+                      {alert.recipients.length} recipients
+                    </span>
                   </div>
                 </div>
               </div>
@@ -205,5 +234,5 @@ export default function AlertsPage() {
         ))}
       </div>
     </div>
-  )
+  );
 }

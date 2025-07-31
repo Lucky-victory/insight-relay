@@ -1,14 +1,20 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
-import { Building, Users, Shield, User, Plus, Trash2 } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { Building, Users, Shield, User, Plus, Trash2 } from "lucide-react";
 
 const teamMembers = [
   {
@@ -35,18 +41,18 @@ const teamMembers = [
     status: "pending",
     avatar: "MJ",
   },
-]
+];
 
 export default function SettingsPage() {
-  const [activeTab, setActiveTab] = useState("organization")
-  const [isInviteModalOpen, setIsInviteModalOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState("organization");
+  const [isInviteModalOpen, setIsInviteModalOpen] = useState(false);
 
   const tabs = [
     { id: "organization", name: "Organization", icon: Building },
     { id: "team", name: "Team", icon: Users },
     { id: "security", name: "Security", icon: Shield },
     { id: "profile", name: "Profile", icon: User },
-  ]
+  ];
 
   return (
     <div className="p-6">
@@ -54,7 +60,9 @@ export default function SettingsPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-[#F3F4F6] mb-2">Settings</h1>
-          <p className="text-[#9CA3AF]">Manage your account, team, and organization settings.</p>
+          <p className="text-[#9CA3AF]">
+            Manage your account, team, and organization settings.
+          </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
@@ -67,7 +75,7 @@ export default function SettingsPage() {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                     activeTab === tab.id
-                      ? "bg-[#4B3D8C]/20 text-[#2EC8C3] border border-[#4B3D8C]/30"
+                      ? "bg-[#4B3D8C]/20 text-[#4bf8f3] border border-[#4B3D8C]/30"
                       : "text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#F3F4F6]/5"
                   }`}
                 >
@@ -89,7 +97,9 @@ export default function SettingsPage() {
             >
               {activeTab === "organization" && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-semibold text-[#F3F4F6]">Organization Settings</h2>
+                  <h2 className="text-2xl font-semibold text-[#F3F4F6]">
+                    Organization Settings
+                  </h2>
 
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -104,7 +114,10 @@ export default function SettingsPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="orgDescription" className="text-[#F3F4F6]">
+                      <Label
+                        htmlFor="orgDescription"
+                        className="text-[#F3F4F6]"
+                      >
                         Description
                       </Label>
                       <Textarea
@@ -123,10 +136,14 @@ export default function SettingsPage() {
                         defaultValue="acme.com"
                         className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] rounded-xl"
                       />
-                      <p className="text-sm text-[#9CA3AF]">Domain verification status: Verified</p>
+                      <p className="text-sm text-[#9CA3AF]">
+                        Domain verification status: Verified
+                      </p>
                     </div>
 
-                    <Button className="bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white rounded-xl">Save Changes</Button>
+                    <Button className="bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white rounded-xl">
+                      Save Changes
+                    </Button>
                   </div>
                 </div>
               )}
@@ -134,9 +151,14 @@ export default function SettingsPage() {
               {activeTab === "team" && (
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <h2 className="text-2xl font-semibold text-[#F3F4F6]">Team Members</h2>
+                    <h2 className="text-2xl font-semibold text-[#F3F4F6]">
+                      Team Members
+                    </h2>
 
-                    <Dialog open={isInviteModalOpen} onOpenChange={setIsInviteModalOpen}>
+                    <Dialog
+                      open={isInviteModalOpen}
+                      onOpenChange={setIsInviteModalOpen}
+                    >
                       <DialogTrigger asChild>
                         <Button className="bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white rounded-xl">
                           <Plus className="w-4 h-4 mr-2" />
@@ -145,11 +167,16 @@ export default function SettingsPage() {
                       </DialogTrigger>
                       <DialogContent className="bg-[#0D0D11] border-[#F3F4F6]/20 text-[#F3F4F6]">
                         <DialogHeader>
-                          <DialogTitle className="text-[#F3F4F6]">Invite Team Member</DialogTitle>
+                          <DialogTitle className="text-[#F3F4F6]">
+                            Invite Team Member
+                          </DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4 mt-4">
                           <div className="space-y-2">
-                            <Label htmlFor="inviteEmail" className="text-[#F3F4F6]">
+                            <Label
+                              htmlFor="inviteEmail"
+                              className="text-[#F3F4F6]"
+                            >
                               Email Address
                             </Label>
                             <Input
@@ -190,8 +217,12 @@ export default function SettingsPage() {
                             {member.avatar}
                           </div>
                           <div>
-                            <h4 className="font-medium text-[#F3F4F6]">{member.name}</h4>
-                            <p className="text-sm text-[#9CA3AF]">{member.email}</p>
+                            <h4 className="font-medium text-[#F3F4F6]">
+                              {member.name}
+                            </h4>
+                            <p className="text-sm text-[#9CA3AF]">
+                              {member.email}
+                            </p>
                           </div>
                         </div>
 
@@ -199,15 +230,21 @@ export default function SettingsPage() {
                           <Badge
                             className={`${
                               member.status === "active"
-                                ? "bg-[#2EC8C3]/20 text-[#2EC8C3] border-[#2EC8C3]/30"
+                                ? "bg-[#4bf8f3]/20 text-[#4bf8f3] border-[#4bf8f3]/30"
                                 : "bg-[#9CA3AF]/20 text-[#9CA3AF] border-[#9CA3AF]/30"
                             } rounded-full`}
                           >
                             {member.status}
                           </Badge>
-                          <span className="text-sm text-[#9CA3AF]">{member.role}</span>
+                          <span className="text-sm text-[#9CA3AF]">
+                            {member.role}
+                          </span>
                           {member.role !== "Owner" && (
-                            <Button variant="ghost" size="sm" className="text-red-400 hover:text-red-300">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="text-red-400 hover:text-red-300"
+                            >
                               <Trash2 className="w-4 h-4" />
                             </Button>
                           )}
@@ -220,11 +257,16 @@ export default function SettingsPage() {
 
               {activeTab === "security" && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-semibold text-[#F3F4F6]">Security Settings</h2>
+                  <h2 className="text-2xl font-semibold text-[#F3F4F6]">
+                    Security Settings
+                  </h2>
 
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="currentPassword" className="text-[#F3F4F6]">
+                      <Label
+                        htmlFor="currentPassword"
+                        className="text-[#F3F4F6]"
+                      >
                         Current Password
                       </Label>
                       <Input
@@ -246,7 +288,10 @@ export default function SettingsPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="confirmPassword" className="text-[#F3F4F6]">
+                      <Label
+                        htmlFor="confirmPassword"
+                        className="text-[#F3F4F6]"
+                      >
                         Confirm New Password
                       </Label>
                       <Input
@@ -265,7 +310,9 @@ export default function SettingsPage() {
 
               {activeTab === "profile" && (
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-semibold text-[#F3F4F6]">Profile Settings</h2>
+                  <h2 className="text-2xl font-semibold text-[#F3F4F6]">
+                    Profile Settings
+                  </h2>
 
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
@@ -303,7 +350,9 @@ export default function SettingsPage() {
                       />
                     </div>
 
-                    <Button className="bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white rounded-xl">Save Profile</Button>
+                    <Button className="bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 text-white rounded-xl">
+                      Save Profile
+                    </Button>
                   </div>
                 </div>
               )}
@@ -312,5 +361,5 @@ export default function SettingsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

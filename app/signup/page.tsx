@@ -15,10 +15,10 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen bg-[#0D0D11] flex items-center justify-center px-4">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#4B3D8C]/10 via-[#0D0D11] to-[#2EC8C3]/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#4B3D8C]/10 via-[#0D0D11] to-[#4bf8f3]/5" />
 
       <motion.div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-[#2EC8C3]/5 rounded-full blur-3xl"
+        className="absolute bottom-20 right-20 w-96 h-96 bg-[#4bf8f3]/5 rounded-full blur-3xl"
         animate={{
           scale: [1.2, 1, 1.2],
           opacity: [0.2, 0.4, 0.2],
@@ -101,7 +101,7 @@ export default function SignupPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -119,13 +119,13 @@ export default function SignupPage() {
               />
               <label className="text-sm text-[#9CA3AF]">
                 I agree to the{" "}
-                <Link href="/terms" className="text-[#2EC8C3] hover:underline">
+                <Link href="/terms" className="text-[#4bf8f3] hover:underline">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/privacy"
-                  className="text-[#2EC8C3] hover:underline"
+                  className="text-[#4bf8f3] hover:underline"
                 >
                   Privacy Policy
                 </Link>
@@ -147,7 +147,7 @@ export default function SignupPage() {
               Already have an account?{" "}
               <Link
                 href="/login"
-                className="text-[#2EC8C3] hover:underline font-medium"
+                className="text-[#4bf8f3] hover:underline font-medium"
               >
                 Sign in
               </Link>

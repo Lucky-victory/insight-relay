@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Star, Quote } from "lucide-react"
-import { useState, useEffect } from "react"
+import { motion } from "framer-motion";
+import { Star, Quote } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const testimonials = [
   {
@@ -41,18 +41,18 @@ const testimonials = [
     rating: 5,
     avatar: "/placeholder.svg?height=60&width=60",
   },
-]
+];
 
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-    }, 5000)
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 5000);
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="py-24 px-4 relative overflow-hidden">
@@ -64,7 +64,7 @@ export function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#F3F4F6] to-[#2EC8C3] bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#F3F4F6] to-[#4bf8f3] bg-clip-text text-transparent">
             Trusted by Growing Businesses
           </h2>
           <p className="text-xl text-[#9CA3AF] max-w-3xl mx-auto">
@@ -87,7 +87,7 @@ export function Testimonials() {
                     className="max-w-4xl mx-auto"
                   >
                     <div className="p-8 md:p-12 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 text-center relative">
-                      <Quote className="w-12 h-12 text-[#2EC8C3]/30 mx-auto mb-6" />
+                      <Quote className="w-12 h-12 text-[#4bf8f3]/30 mx-auto mb-6" />
 
                       <blockquote className="text-xl md:text-2xl text-[#F3F4F6] mb-8 leading-relaxed">
                         "{testimonial.content}"
@@ -95,7 +95,10 @@ export function Testimonials() {
 
                       <div className="flex items-center justify-center gap-1 mb-6">
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-[#2EC8C3] text-[#2EC8C3]" />
+                          <Star
+                            key={i}
+                            className="w-5 h-5 fill-[#4bf8f3] text-[#4bf8f3]"
+                          />
                         ))}
                       </div>
 
@@ -103,10 +106,12 @@ export function Testimonials() {
                         <img
                           src={testimonial.avatar || "/placeholder.svg"}
                           alt={testimonial.name}
-                          className="w-12 h-12 rounded-full border-2 border-[#2EC8C3]/30"
+                          className="w-12 h-12 rounded-full border-2 border-[#4bf8f3]/30"
                         />
                         <div className="text-left">
-                          <div className="font-semibold text-[#F3F4F6]">{testimonial.name}</div>
+                          <div className="font-semibold text-[#F3F4F6]">
+                            {testimonial.name}
+                          </div>
                           <div className="text-[#9CA3AF]">
                             {testimonial.role} at {testimonial.company}
                           </div>
@@ -126,7 +131,9 @@ export function Testimonials() {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? "bg-[#2EC8C3] scale-125" : "bg-[#9CA3AF]/30 hover:bg-[#9CA3AF]/50"
+                  index === currentIndex
+                    ? "bg-[#4bf8f3] scale-125"
+                    : "bg-[#9CA3AF]/30 hover:bg-[#9CA3AF]/50"
                 }`}
               />
             ))}
@@ -134,5 +141,5 @@ export function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }

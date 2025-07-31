@@ -55,28 +55,28 @@ export default function DashboardPage() {
           value="$45,231"
           change="+12.5%"
           trend="up"
-          icon={<DollarSign className="w-6 h-6 text-[#2EC8C3]" />}
+          icon={<DollarSign className="w-6 h-6 text-[#4bf8f3]" />}
         />
         <StatCard
           title="Active Users"
           value="2,350"
           change="+8.2%"
           trend="up"
-          icon={<Users className="w-6 h-6 text-[#2EC8C3]" />}
+          icon={<Users className="w-6 h-6 text-[#4bf8f3]" />}
         />
         <StatCard
           title="Orders"
           value="1,234"
           change="-2.4%"
           trend="down"
-          icon={<ShoppingCart className="w-6 h-6 text-[#2EC8C3]" />}
+          icon={<ShoppingCart className="w-6 h-6 text-[#4bf8f3]" />}
         />
         <StatCard
           title="Conversion Rate"
           value="3.24%"
           change="+0.8%"
           trend="up"
-          icon={<Activity className="w-6 h-6 text-[#2EC8C3]" />}
+          icon={<Activity className="w-6 h-6 text-[#4bf8f3]" />}
         />
       </div>
 
@@ -212,7 +212,7 @@ export default function DashboardPage() {
               key={index}
               className="flex items-center gap-4 p-3 rounded-xl bg-[#F3F4F6]/5"
             >
-              <div className="w-2 h-2 bg-[#2EC8C3] rounded-full"></div>
+              <div className="w-2 h-2 bg-[#4bf8f3] rounded-full"></div>
               <div className="flex-1">
                 <p className="text-[#F3F4F6] text-sm">{activity.event}</p>
                 <p className="text-[#9CA3AF] text-xs">{activity.time}</p>

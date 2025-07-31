@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { BarChart3, Twitter, Linkedin, Github, Mail } from "lucide-react"
-import Link from "next/link"
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { BarChart3, Twitter, Linkedin, Github, Mail } from "lucide-react";
+import Link from "next/link";
 
 const footerLinks = {
   product: [
@@ -30,7 +30,7 @@ const footerLinks = {
     { name: "Security", href: "/security" },
     { name: "Cookies", href: "/cookies" },
   ],
-}
+};
 
 export function Footer() {
   return (
@@ -40,12 +40,14 @@ export function Footer() {
           {/* Brand and newsletter */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <BarChart3 className="w-8 h-8 text-[#2EC8C3]" />
-              <span className="text-xl font-bold text-[#F3F4F6]">InsightRelay</span>
+              <BarChart3 className="w-8 h-8 text-[#4bf8f3]" />
+              <span className="text-xl font-bold text-[#F3F4F6]">
+                InsightRelay
+              </span>
             </div>
             <p className="text-[#9CA3AF] mb-6 leading-relaxed">
-              Transform your business data into actionable insights with real-time analytics, automated alerts, and
-              intelligent reporting.
+              Transform your business data into actionable insights with
+              real-time analytics, automated alerts, and intelligent reporting.
             </p>
 
             <div className="space-y-3">
@@ -56,7 +58,9 @@ export function Footer() {
                   placeholder="Enter your email"
                   className="bg-[#F3F4F6]/5 border-[#F3F4F6]/20 text-[#F3F4F6] placeholder:text-[#9CA3AF] rounded-xl"
                 />
-                <Button className="bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 rounded-xl px-6">Subscribe</Button>
+                <Button className="bg-[#4B3D8C] hover:bg-[#4B3D8C]/80 rounded-xl px-6">
+                  Subscribe
+                </Button>
               </div>
             </div>
           </div>
@@ -67,7 +71,10 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.product.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200">
+                  <Link
+                    href={link.href}
+                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -80,7 +87,10 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200">
+                  <Link
+                    href={link.href}
+                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -93,7 +103,10 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200">
+                  <Link
+                    href={link.href}
+                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -106,7 +119,10 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200">
+                  <Link
+                    href={link.href}
+                    className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -124,25 +140,25 @@ export function Footer() {
           <div className="flex items-center gap-4">
             <Link
               href="https://twitter.com"
-              className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
             >
               <Twitter className="w-5 h-5" />
             </Link>
             <Link
               href="https://linkedin.com"
-              className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
             >
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
               href="https://github.com"
-              className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
             >
               <Github className="w-5 h-5" />
             </Link>
             <Link
               href="mailto:hello@insightrelay.com"
-              className="text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors duration-200"
+              className="text-[#9CA3AF] hover:text-[#4bf8f3] transition-colors duration-200"
             >
               <Mail className="w-5 h-5" />
             </Link>
@@ -150,5 +166,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
