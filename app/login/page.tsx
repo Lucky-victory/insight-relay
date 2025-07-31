@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { BarChart3, Eye, EyeOff } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { BarChart3, Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { AppLogo } from "@/components/ui/app-logo";
 
 export default function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0D0D11] flex items-center justify-center px-4">
@@ -38,14 +39,17 @@ export default function LoginPage() {
         <div className="p-8 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 shadow-xl">
           {/* Logo */}
           <div className="flex items-center justify-center gap-2 mb-8">
-            <BarChart3 className="w-8 h-8 text-[#2EC8C3]" />
-            <span className="text-2xl font-bold text-[#F3F4F6]">InsightRelay</span>
+            <AppLogo />
           </div>
 
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#F3F4F6] mb-2">Welcome back</h1>
-            <p className="text-[#9CA3AF]">Sign in to your account to continue</p>
+            <h1 className="text-2xl font-bold text-[#F3F4F6] mb-2">
+              Welcome back
+            </h1>
+            <p className="text-[#9CA3AF]">
+              Sign in to your account to continue
+            </p>
           </div>
 
           {/* Form */}
@@ -78,17 +82,27 @@ export default function LoginPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
 
             <div className="flex items-center justify-between">
               <label className="flex items-center gap-2 text-sm text-[#9CA3AF]">
-                <input type="checkbox" className="rounded border-[#F3F4F6]/20" />
+                <input
+                  type="checkbox"
+                  className="rounded border-[#F3F4F6]/20"
+                />
                 Remember me
               </label>
-              <Link href="/forgot-password" className="text-sm text-[#2EC8C3] hover:underline">
+              <Link
+                href="/forgot-password"
+                className="text-sm text-[#2EC8C3] hover:underline"
+              >
                 Forgot password?
               </Link>
             </div>
@@ -106,7 +120,10 @@ export default function LoginPage() {
           <div className="mt-8 text-center">
             <p className="text-[#9CA3AF]">
               Don't have an account?{" "}
-              <Link href="/signup" className="text-[#2EC8C3] hover:underline font-medium">
+              <Link
+                href="/signup"
+                className="text-[#2EC8C3] hover:underline font-medium"
+              >
                 Sign up
               </Link>
             </p>
@@ -114,5 +131,5 @@ export default function LoginPage() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }

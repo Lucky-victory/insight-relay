@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { BarChart3, Eye, EyeOff } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { BarChart3, Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { AppLogo } from "@/components/ui/app-logo";
 
 export default function SignupPage() {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0D0D11] flex items-center justify-center px-4">
@@ -38,13 +39,14 @@ export default function SignupPage() {
         <div className="p-8 rounded-2xl bg-[#F3F4F6]/5 backdrop-blur-md border border-[#F3F4F6]/10 shadow-xl">
           {/* Logo */}
           <div className="flex items-center justify-center gap-2 mb-8">
-            <BarChart3 className="w-8 h-8 text-[#2EC8C3]" />
-            <span className="text-2xl font-bold text-[#F3F4F6]">InsightRelay</span>
+            <AppLogo />{" "}
           </div>
 
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#F3F4F6] mb-2">Create your account</h1>
+            <h1 className="text-2xl font-bold text-[#F3F4F6] mb-2">
+              Create your account
+            </h1>
             <p className="text-[#9CA3AF]">Start your 14-day free trial today</p>
           </div>
 
@@ -101,20 +103,30 @@ export default function SignupPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#9CA3AF] hover:text-[#2EC8C3] transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
 
             <div className="flex items-start gap-2">
-              <input type="checkbox" className="mt-1 rounded border-[#F3F4F6]/20" />
+              <input
+                type="checkbox"
+                className="mt-1 rounded border-[#F3F4F6]/20"
+              />
               <label className="text-sm text-[#9CA3AF]">
                 I agree to the{" "}
                 <Link href="/terms" className="text-[#2EC8C3] hover:underline">
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="/privacy" className="text-[#2EC8C3] hover:underline">
+                <Link
+                  href="/privacy"
+                  className="text-[#2EC8C3] hover:underline"
+                >
                   Privacy Policy
                 </Link>
               </label>
@@ -133,7 +145,10 @@ export default function SignupPage() {
           <div className="mt-8 text-center">
             <p className="text-[#9CA3AF]">
               Already have an account?{" "}
-              <Link href="/login" className="text-[#2EC8C3] hover:underline font-medium">
+              <Link
+                href="/login"
+                className="text-[#2EC8C3] hover:underline font-medium"
+              >
                 Sign in
               </Link>
             </p>
@@ -141,5 +156,5 @@ export default function SignupPage() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
